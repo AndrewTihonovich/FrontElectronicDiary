@@ -9,6 +9,7 @@ import { NotFoundComponent }   from './components/not-found/not-found.component'
 import { HomeComponent }   from './components/home/home.component';
 import { RegistrationComponent }   from './components/registration/registration.component';
 import { RecordComponent }   from './components/record/record.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
         BrowserModule, 
         FormsModule,
         RouterModule.forRoot(appRoutes),
+        HttpClientModule
     ],
     declarations: [ 
         AppComponent, 
