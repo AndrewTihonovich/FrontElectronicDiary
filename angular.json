@@ -1,0 +1,32 @@
+{
+  "cli": {
+    "analytics": "b9d256e3-d89e-4e89-9817-dd244cb41c4b"
+  },
+      "version": 1,
+      "projects": {
+        "electronicdiary": {
+          "projectType": "application",
+          "root": "",
+          "sourceRoot": "src",
+          "architect": {
+            "build": {
+              "builder": "@angular-devkit/build-angular:browser",
+              "options": {
+                "outputPath": "dist/electronicdiary",
+                "index": "src/index.html",
+                "main": "src/main.ts",
+                "polyfills": "src/polyfills.ts",
+                "tsConfig": "tsconfig.json",
+                "aot": true
+              }
+            },
+            "serve": {
+              "builder": "@angular-devkit/build-angular:dev-server",
+              "options": {
+                "browserTarget": "electronicdiary:build"
+              }
+            }
+          }
+        }},
+      "defaultProject": "electronicdiary"
+    }
