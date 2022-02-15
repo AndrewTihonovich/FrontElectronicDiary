@@ -3,3 +3,26 @@
     <title>Record</title> 
  </head>
 <h1>Record</h1> 
+
+<div *ngIf="!addRec">
+    <button (click)="addRecodrForm()">Создать запись</button>
+    </div>
+    
+    <div *ngIf="addRec">
+      <input [(ngModel)]="theme"/>
+      <input [(ngModel)]="text"/>
+      <br/><br/>
+      <button (click)="addRecord()">Добавить запись</button>
+      <button (click)="escAddRecodrForm()">Отмена</button>
+    </div>
+    
+<table >
+    <tr>
+      <th>      Тема записи     </th>     <th>      Текст записи      </th>      <th>     Действия      </th>
+    </tr>
+
+    <tr  *ngFor="let item of records" >
+      <td>{{item.theme}}</td>              <td>{{item.text}}</td>                   <td><button (click)="editRecord(item.id)">Изменить</button> <button (click)="delRecord(item.id)" >Удалить</button> </td> <td>{{item.id}}</td>
+    </tr>
+  </table>
+    
