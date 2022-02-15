@@ -1,6 +1,6 @@
 import {Component, OnInit}  from "@angular/core";
 import { Router } from "@angular/router";
-import { recordService } from "../../serveces/record.service";
+import { recordService } from "../../services/record.service";
 import { Record } from "../../models/Record/Record"
 import { NewRecord } from "src/app/models/Record/NewRecord";
 
