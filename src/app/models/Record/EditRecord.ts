@@ -1,6 +1,3 @@
 export class EditRecord{
-    id:number;
-    theme:string;
-    text:string;
-    userId:string
+    constructor( private id:number, private theme: string, private text:string, private userId:string){}
 }

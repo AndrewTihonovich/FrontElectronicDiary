@@ -5,12 +5,12 @@
 <h1>Record</h1> 
 
 <div *ngIf="!addRec">
-    <button (click)="addRecodrForm()">Создать запись</button>
+    <button routerLink="/record/create">Создать запись</button>
     </div>
     
     <div *ngIf="addRec">
-      <input [(ngModel)]="theme"/>
-      <input [(ngModel)]="text"/>
+      <input [(ngModel)]="theme" placeholder="Тема/Заголовок"/>
+      <input [(ngModel)]="text" placeholder="Текст"/>
       <br/><br/>
       <button (click)="addRecord()">Добавить запись</button>
       <button (click)="escAddRecodrForm()">Отмена</button>
@@ -18,11 +18,11 @@
     
 <table >
     <tr>
-      <th>      Тема записи     </th>     <th>      Текст записи      </th>      <th>     Действия      </th>
+      <th> Тема/Заголовок записи </th>     <th>      Текст записи      </th>      
     </tr>
 
     <tr  *ngFor="let item of records" >
-      <td>{{item.theme}}</td>              <td>{{item.text}}</td>                   <td><button (click)="editRecord(item.id)">Изменить</button> <button (click)="delRecord(item.id)" >Удалить</button> </td> <td>{{item.id}}</td>
+      <td>{{item.theme}}</td>              <td>{{item.text}}</td>                   <td><button (click)="editRecord(item)">Изменить</button> </td> <td> <button (click)="delRecord(item.id)" >Удалить</button> </td>
     </tr>
   </table>
     

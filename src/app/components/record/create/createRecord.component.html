@@ -1,0 +1,10 @@
+<head>
+    <title>Create Record</title> 
+ </head>
+<h1>Create Record</h1>
+
+    <input [(ngModel)]="theme" placeholder="Тема/Заголовок"/>
+    <input [(ngModel)]="text" placeholder="Текст"/>
+    <br/><br/>
+    <button (click)="createRecord()">Добавить запись</button>
+    <button routerLink="/record">Отмена</button>

@@ -10,7 +10,7 @@ import { NewRecord } from "src/app/models/Record/NewRecord";
     providers : [recordService],
 })
 
-export class RecordComponent  {
+export class RecordComponent implements OnInit {
     
     id: number=1;
     res: string="";
@@ -23,7 +23,7 @@ export class RecordComponent  {
 
     constructor(private recordServ: recordService, public router: Router){}
     
-    ngOnInit(): void {
+    ngOnInit(){
         this.recordServ.getAllRecord( this.getCurrentUser() ).subscribe((x:Array<Record>) => {this.records = x} );
     }
 
@@ -45,7 +45,9 @@ export class RecordComponent  {
         this.addRec=false;
     };
 
-    editRecord(id : number){
+    editRecord(data : Record){
+        localStorage.setItem("editRecord", JSON.stringify(data));
+        this.router.navigate(['/record/edit']);
         //this.editRec=true;
         //this.http.get<Record>(this.url + id).subscribe( x => this.record = x);
 
