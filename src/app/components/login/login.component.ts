@@ -22,7 +22,7 @@ export class LoginComponent {
     submitLogin(){
         
         var user = new UserLogin( this.email, this.password);
-        this.loginServ.Login(user).subscribe( data => this.userResponse=data )
+        this.loginServ.Login(user).subscribe(data => this.userResponse=data);
         this.token=this.userResponse.token;
         console.log("token=" + this.userResponse.token);
 

@@ -9,9 +9,10 @@ import { NotFoundComponent }   from './components/not-found/not-found.component'
 import { HomeComponent }   from './components/home/home.component';
 import { RegistrationComponent }   from './components/registration/registration.component';
 import { RecordComponent }   from './components/record/record.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateRecordComponent } from './components/record/create/createRecord.component';
 import { EditRecordComponent } from './components/record/edit/editRecord.component';
+import { TokenInterceptor } from './helper/token.interceptor';
 
 const recordChildRoutes: Routes = [
     {path: 'create', component: CreateRecordComponent},
@@ -47,6 +48,13 @@ const appRoutes: Routes = [
         CreateRecordComponent,
         EditRecordComponent,
      ],
+     providers: [
+        { 
+            provide: HTTP_INTERCEPTORS, 
+            useClass: TokenInterceptor,
+            multi: true 
+        },
+      ],
     bootstrap:    [ AppComponent ]
 })
 
