@@ -13,6 +13,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateRecordComponent } from './components/record/create/createRecord.component';
 import { EditRecordComponent } from './components/record/edit/editRecord.component';
 import { TokenInterceptor } from './helper/token.interceptor';
+import { LogoutComponent } from './components/logout/logout.component';
 
 const recordChildRoutes: Routes = [
     {path: 'create', component: CreateRecordComponent},
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'login', component: LoginComponent},
     {path: 'registration', component: RegistrationComponent},
+    {path: 'logout', component: LogoutComponent},
     {path: 'record', component: RecordComponent},
     //{path: 'record/', component: RecordComponent, children: recordChildRoutes},
     {path: 'record/create', component: CreateRecordComponent},
@@ -47,6 +49,7 @@ const appRoutes: Routes = [
         RecordComponent,
         CreateRecordComponent,
         EditRecordComponent,
+        LogoutComponent
      ],
      providers: [
         { 
