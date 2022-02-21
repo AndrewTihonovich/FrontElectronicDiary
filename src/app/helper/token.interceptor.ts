@@ -1,5 +1,5 @@
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -19,11 +19,23 @@ export class TokenInterceptor implements HttpInterceptor {
                     "Bearer " + currentUserToken)
             });
 
-            return next.handle(cloned);
+            return this.sendReuest(cloned, next);
         }
         else {
-            this.router.navigate(['/login']);
-            return next.handle(req);
+            //this.router.navigate(['/login']);
+            return this.sendReuest(req, next);
         }
+    }
+
+    sendReuest(req: HttpRequest<any>, next: HttpHandler) {
+        return next.handle(req).pipe(catchError(err => {
+            if (err.status === 401) {
+                sessionStorage.removeItem("currentUserToken");
+                sessionStorage.removeItem("currentUser");
+                this.router.navigate(['/login']);
+            }
+            const error = err.error.message || err.statusText;
+                return throwError(()=>error);
+        }));;
     }
 }
