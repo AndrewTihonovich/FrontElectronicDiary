@@ -25,21 +25,20 @@ export class RegistrationComponent {
 
     registrationUser(){
         var user = new UserRegistration(this.firstName, this.lastName, this.login, this.email, this.phone, this.password );
-        this.loginServ.Registration(user).subscribe(data => this.userResponse=data);
-        this.token=this.userResponse.token;
-        console.log("token=" + this.userResponse.token);
-
-        if  (this.userResponse.token==null)
-        {
-            console.log("User NOT auth after Registration");
-        }
-        else{
-            console.log("User AUTH after Registration");
-
-            sessionStorage.setItem("currentUserToken", this.userResponse.token);
-            sessionStorage.setItem("currentUser", this.userResponse.displayName);
+        this.loginServ.Registration(user).subscribe(data => {
             
-            this.router.navigate(['/record']);
-        }
+            if  (data.result!==null)
+            {
+                console.log("User AUTH after Registration");
+
+                sessionStorage.setItem("currentUserToken", data.token);
+                sessionStorage.setItem("currentUser", data.displayName);
+                
+                this.router.navigate(['/record']);
+            }
+            else{
+                console.log("User NOT auth after Registration");
+                }
+        });
     }
 }

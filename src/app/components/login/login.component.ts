@@ -22,21 +22,19 @@ export class LoginComponent {
     submitLogin(){
         
         var user = new UserLogin( this.email, this.password);
-        this.loginServ.Login(user).subscribe(data => this.userResponse=data);
-        this.token=this.userResponse.token;
-        console.log("token=" + this.userResponse.token);
+        this.loginServ.Login(user).subscribe(data => {
+        if  (data.result !==null)
+            {
+                console.log("User AUTH");
 
-        if  (this.userResponse.token==null)
-        {
-            console.log("User NOT auth");
-        }
-        else{
-            console.log("User AUTH");
-
-            sessionStorage.setItem("currentUserToken", this.userResponse.token);
-            sessionStorage.setItem("currentUser", this.userResponse.displayName);
+                sessionStorage.setItem("currentUserToken", data.token);
+                sessionStorage.setItem("currentUser", data.displayName);
             
-            this.router.navigate(['/record']);
-        }
+                this.router.navigate(['/record']);
+            }
+            else {
+                console.log("User NOT auth");
+            }
+        });
     }
 }
