@@ -8,6 +8,7 @@ import { UserRegistration } from "../models/User/UserRegistration";
 export class authenticationService {
     private urlLogin = "https://localhost:44375/api/login";
     private urlRegistr = "https://localhost:44375/api/registration";
+    private urlUserInfo = "https://localhost:44375/api/user?userId=";
 
     constructor(private http: HttpClient) { }
 
@@ -23,5 +24,9 @@ export class authenticationService {
 
     }
 
+    public UserInformation(currentUser: string){
+            
+        return this.http.get(this.urlUserInfo+currentUser);
 
+    }
 }

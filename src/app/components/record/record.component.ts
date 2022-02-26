@@ -3,11 +3,15 @@ import { Router } from "@angular/router";
 import { recordService } from "../../services/record.service";
 import { Record } from "../../models/Record/Record"
 import { NewRecord } from "src/app/models/Record/NewRecord";
+import { Http2ServerRequest } from "http2";
+import { HttpClient } from "@angular/common/http";
+import { UserInfo } from "src/app/models/User/UserInfo";
+import { authenticationService } from "src/app/services/authentication.service";
 
 @Component({
     selector : 'record-page',
     templateUrl: 'record.component.html',
-    providers : [recordService],
+    providers : [recordService, authenticationService],
 })
 
 export class RecordComponent implements OnInit {
@@ -20,10 +24,12 @@ export class RecordComponent implements OnInit {
     text: string='a';
     addRec:boolean=false;
     editRec:boolean=false;
+    userId:string;
 
-    constructor(private recordServ: recordService, public router: Router){}
+    constructor(private recordServ: recordService, private authdServ: authenticationService, public router: Router, private http: HttpClient){}
     
     ngOnInit(){
+        this.authdServ.UserInformation(this.getCurrentUser()).subscribe((data:UserInfo)=>this.userId=data.userLogin);
         this.recordServ.getAllRecord( this.getCurrentUser() ).subscribe((x:Array<Record>) => {this.records = x} );
     }
 
@@ -61,7 +67,4 @@ export class RecordComponent implements OnInit {
     getCurrentUser():string{
         return sessionStorage.getItem("currentUser");
     }
-
-
-
 }
