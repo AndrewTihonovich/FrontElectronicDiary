@@ -1,0 +1,16 @@
+<head>
+    <title>User</title> 
+ </head>
+<h1>User</h1>  
+
+<br/><br/>
+<p> Пользователи</p>
+<table >
+    <tr>
+        <th> firstName</th>     <th>lastName</th>   <th>login</th>   <th>email</th> <th>phone </th> <th> </th>
+      </tr>
+
+    <tr  *ngFor="let item of users" >
+      <td>{{item.userName}}</td>  <td>{{item.userLastName}}</td> <td>{{item.login}}</td> <td>{{item.email}}</td> <td>{{item.phone}}</td> <td> <button (click)="delUser(item.email)" >Удалить</button> </td>
+    </tr>
+  </table>
