@@ -1,0 +1,13 @@
+.MemoText{
+    width: 400px;
+    height: 200px; 
+    resize: none;
+}
+
+.LabelText{
+    width: 400px;
+}
+
+.Th{
+    width: 200px;
+}

@@ -2,23 +2,16 @@
 <head>
     <title>Record</title> 
  </head>
-<h1>Record</h1> 
+<h1>Мои записи</h1> 
+<p align="right"><strong>Пользователь: {{userId}}</strong></p>
 
 <div *ngIf="!addRec">
     <button routerLink="/record/create">Создать запись</button>
     </div>
-    
-    <div *ngIf="addRec">
-      <input [(ngModel)]="theme" placeholder="Тема/Заголовок"/>
-      <input [(ngModel)]="text" placeholder="Текст"/>
-      <br/><br/>
-      <button (click)="addRecord()">Добавить запись</button>
-      <button (click)="escAddRecodrForm()">Отмена</button>
-    </div>
-    
+
 <table >
     <tr>
-      <th> Тема/Заголовок записи </th>     <th>      Текст записи      </th>      
+      <th class="table_th150"> Тема/Заголовок записи </th>     <th class="table_th200">Текст записи</th>  <th class="table_th100"></th>  <th class="table_th100"></th>   
     </tr>
 
     <tr  *ngFor="let item of records" >

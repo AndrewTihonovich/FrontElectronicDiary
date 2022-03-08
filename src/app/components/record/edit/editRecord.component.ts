@@ -7,6 +7,7 @@ import { recordService } from "src/app/services/record.service";
 @Component({
     selector : 'editRecord-page',
     templateUrl: 'editRecord.component.html',
+    styleUrls : ['editRecord.component.css'],
     providers : [recordService],
 })
 

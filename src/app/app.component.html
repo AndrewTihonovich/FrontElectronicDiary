@@ -1,13 +1,16 @@
 <header>
     
-    <a routerLink="">Home</a> <br/>
-    <a routerLink="login">Login</a> <br/>
-    <a routerLink="registration">Registration</a> <br/>
-    <a routerLink="record">Record</a><br/>
-    <a routerLink="not-found">Not found</a><br/>
-    <a routerLink="user">User</a><br/>
-    <a routerLink="logout">LogOut</a><br/>
-
+    <table class="header_table">
+        <tr>
+          <th class="table_th"> <a routerLink="">Home</a> </th>     
+          <th class="table_th"> <a routerLink="record">Record</a> </th> 
+          <th class="table_th"> <a routerLink="user">User</a> </th>
+          <th class="table_th"> <a routerLink="login">Login</a> </th> 
+          <th class="table_th"> <a routerLink="registration">Registration</a> </th>
+          <th class="table_th"> <a routerLink="logout">LogOut</a> </th> 
+        </tr>
+      </table>
+      
 </header>
  
 <router-outlet></router-outlet>

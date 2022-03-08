@@ -10,6 +10,7 @@ import { UserInfo } from "src/app/models/User/UserInfo";
 @Component({
     selector : 'user-page',
     templateUrl: 'user.component.html',
+    styleUrls : ['user.component.css'],
     providers : [userService, authenticationService],
 })
 

@@ -1,10 +1,14 @@
 <head>
     <title>Create Record</title> 
  </head>
-<h1>Create Record</h1>
+<h1>Создать запись</h1>
 
-    <input [(ngModel)]="theme" placeholder="Тема/Заголовок"/>
-    <input [(ngModel)]="text" placeholder="Текст"/>
+    <input [(ngModel)]="theme" placeholder="Тема/Заголовок" class="LabelText"/><br/><br/>
+    <textarea [(ngModel)]="text" placeholder="Текст" class="MemoText">  </textarea>
     <br/><br/>
-    <button (click)="createRecord()">Добавить запись</button>
-    <button routerLink="/record">Отмена</button>
+    <table>
+        <tr>
+            <th class="Th"> <button (click)="createRecord()">Добавить запись</button>  </th>     
+            <th class="Th"> <button routerLink="/record">Отмена</button></th>      
+        </tr>
+    </table>

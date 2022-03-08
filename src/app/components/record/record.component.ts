@@ -11,6 +11,7 @@ import { authenticationService } from "src/app/services/authentication.service";
 @Component({
     selector : 'record-page',
     templateUrl: 'record.component.html',
+    styleUrls : ['record.component.css'],
     providers : [recordService, authenticationService],
 })
 
@@ -60,8 +61,8 @@ export class RecordComponent implements OnInit {
     };
 
     delRecord(id : number){
-        this.recordServ.delRecord(id).subscribe( );
-
+        if (confirm('Уверены, что хотите удалить?')){
+            this.recordServ.delRecord(id).subscribe( );}
     };
 
     getCurrentUser():string{

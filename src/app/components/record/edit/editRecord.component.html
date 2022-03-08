@@ -1,10 +1,14 @@
 <head>
     <title>Update Record</title> 
  </head>
-<h1>Update Record</h1>
+<h1>Изменить запись</h1>
 
-<input [(ngModel)]="theme" />
-<input [(ngModel)]="text" />
-    <br/><br/>
-    <button (click)="editRecord()">Изменить запись</button>
-    <button routerLink="/record">Отмена</button>
+<input [(ngModel)]="theme" class="LabelText" /> <br/><br/>
+<textarea [(ngModel)]="text" class="MemoText">  </textarea>
+    <br/><br/> 
+    <table>
+        <tr>
+            <th class="Th"> <button (click)="editRecord()">Изменить запись</button> </th>     
+            <th class="Th"> <button routerLink="/record">Отмена</button> </th>      
+        </tr>
+    </table>

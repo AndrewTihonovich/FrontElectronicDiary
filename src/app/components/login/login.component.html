@@ -1,13 +1,13 @@
 <head>
     <title>Login</title> 
  </head>
-<h1>Login</h1>  
+<h1>Войти</h1>  
 
 <br/><br/>
 <input [(ngModel)]="email" placeholder="Email"/>  
 <br/><br/>
 <input [(ngModel)]="password" placeholder="Password"/>  
 <br/><br/>
-<button (click)="submitLogin()" >Login</button> 
+<button (click)="submitLogin()" >Войти</button> 
 <br/><br/>
-<button>Registration</button>
+<button routerLink="/registration">Регистрация</button>  
