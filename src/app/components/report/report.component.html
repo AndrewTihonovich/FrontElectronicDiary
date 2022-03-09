@@ -1,0 +1,32 @@
+<head>
+    <title>Report</title> 
+ </head>
+<h1>Отчеты</h1>
+
+<table>
+    <tr>
+      <th>Начало периода</th>
+      <th>Конец периода</th>
+      <th>Пользователь</th>
+    </tr>
+    <tr>
+      <td><input type="date" [(ngModel)]="timeStart"></td>
+      <td><input type="date" [(ngModel)]="timeEnd"></td>
+      <td> <input [(ngModel)]="userId" placeholder="Пользователь"/>  </td>
+      <td> <button (click)="sort(timeStart, timeEnd)">Показать записи</button> </td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <th class="table_th150"> Дата/Время создания </th> 
+      <th class="table_th150"> Тема/Заголовок записи </th>     
+      <th class="table_th200">Текст записи</th>  
+    </tr>
+
+    <tr  *ngFor="let item of records" >
+      <td>{{item.wasCreated | date:'dd-MM-YYYY hh:mm'}}</td>      
+      <td>{{item.theme}}</td>             
+      <td>{{item.text}}</td>                   
+    </tr>
+  </table>

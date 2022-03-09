@@ -12,12 +12,12 @@ import { UserLoginResponse } from "src/app/models/User/UserLoginResponse";
 })
 
 export class RegistrationComponent { 
-    firstName: string = "123";
-    lastName: string = "123";
-    userNameLogin: string = "123";
-    email: string = "123@123.123"
-    phone: string = "343435";
-    password: string = "!23QweAsd";
+    firstName: string;
+    lastName: string;
+    userNameLogin: string;
+    email: string;
+    phone: string;
+    password: string;
     public token:string="";
     public userResponse: UserLoginResponse = new UserLoginResponse();
 

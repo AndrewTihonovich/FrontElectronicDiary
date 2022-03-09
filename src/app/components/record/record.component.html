@@ -5,11 +5,25 @@
 <h1>Мои записи</h1> 
 <p align="right"><strong>Пользователь: {{userId}}</strong></p>
 
+<table>
+  <tr>
+    <th>Начало периода</th>
+    <th>Конец периода</th>
+  </tr>
+  <tr>
+    <td><input type="date" [(ngModel)]="timeStart"></td>
+    <td><input type="date" [(ngModel)]="timeEnd"></td>
+    <td> <button (click)="sort(timeStart, timeEnd)">Показать записи</button> </td>
+    <td> <button (click)="getAllRecordUser()">Показать все записи</button> </td>
+  </tr>
+</table>
+<br><br>
+
 <div *ngIf="!addRec">
     <button routerLink="/record/create">Создать запись</button>
     </div>
 
-<table class="table table-striped">
+<table *ngIf="enableTab">
     <tr>
       <th class="table_th150"> Дата/Время создания </th> 
       <th class="table_th150"> Тема/Заголовок записи </th>     

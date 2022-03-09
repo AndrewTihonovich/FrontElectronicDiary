@@ -15,6 +15,7 @@ import { EditRecordComponent } from './components/record/edit/editRecord.compone
 import { TokenInterceptor } from './helper/token.interceptor';
 import { LogoutComponent } from './components/logout/logout.component';
 import { UserComponent }   from './components/user/user.component';
+import { ReportComponent }   from './components/report/report.component';
 
 const recordChildRoutes: Routes = [
     {path: 'create', component: CreateRecordComponent},
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
     {path: 'record/create', component: CreateRecordComponent},
     {path: 'record/edit', component: EditRecordComponent},
     {path: 'user', component: UserComponent},
+    {path: 'report', component: ReportComponent},
     {path: '**', component: NotFoundComponent}
 ];
 
@@ -52,7 +54,8 @@ const appRoutes: Routes = [
         CreateRecordComponent,
         EditRecordComponent,
         LogoutComponent,
-        UserComponent
+        UserComponent,
+        ReportComponent,
      ],
      providers: [
         { 

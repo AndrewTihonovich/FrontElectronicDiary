@@ -7,12 +7,13 @@ import { Http2ServerRequest } from "http2";
 import { HttpClient } from "@angular/common/http";
 import { UserInfo } from "src/app/models/User/UserInfo";
 import { authenticationService } from "src/app/services/authentication.service";
+import { reportService } from "src/app/services/report.service";
 
 @Component({
     selector : 'record-page',
     templateUrl: 'record.component.html',
     styleUrls : ['record.component.css'],
-    providers : [recordService, authenticationService],
+    providers : [recordService, authenticationService, reportService],
 })
 
 export class RecordComponent implements OnInit {
@@ -21,17 +22,19 @@ export class RecordComponent implements OnInit {
     res: string="";
     record: Record;
     records:Array<Record>;
-    theme: string='a';
-    text: string='a';
+    theme: string;
+    text: string;
     addRec:boolean=false;
     editRec:boolean=false;
     userId:string;
+    timeStart:Date;
+    timeEnd:Date;
+    enableTab:boolean=false;
 
-    constructor(private recordServ: recordService, private authdServ: authenticationService, public router: Router, private http: HttpClient){}
+    constructor(private reportServ: reportService, private recordServ: recordService, private authdServ: authenticationService, public router: Router, private http: HttpClient){}
     
     ngOnInit(){
         this.authdServ.UserInformation(this.getCurrentUser()).subscribe((data:UserInfo)=>this.userId=data.userLogin);
-        this.recordServ.getAllRecord( this.getCurrentUser() ).subscribe((x:Array<Record>) => {this.records = x} );
     }
 
     getOneRecord(){
@@ -55,9 +58,6 @@ export class RecordComponent implements OnInit {
     editRecord(data : Record){
         localStorage.setItem("editRecord", JSON.stringify(data));
         this.router.navigate(['/record/edit']);
-        //this.editRec=true;
-        //this.http.get<Record>(this.url + id).subscribe( x => this.record = x);
-
     };
 
     delRecord(id : number){
@@ -67,5 +67,15 @@ export class RecordComponent implements OnInit {
 
     getCurrentUser():string{
         return sessionStorage.getItem("currentUser");
+    }
+
+    sort(Start:Date , End:Date){
+        this.enableTab=true;
+        this.reportServ.getRecordByTime(Start, End, this.getCurrentUser() ).subscribe((x:Array<Record>) => {this.records = x} );
+    }
+
+    getAllRecordUser(){
+        this.enableTab=true;
+        this.recordServ.getAllRecord( this.getCurrentUser() ).subscribe((x:Array<Record>) => {this.records = x} );
     }
 }

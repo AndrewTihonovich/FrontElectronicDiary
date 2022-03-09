@@ -16,7 +16,6 @@ import { UserInfo } from "src/app/models/User/UserInfo";
 
 export class UserComponent { 
 
-    //email: string;
     users:Array<AppUser>;
     userId:string;
     public token:string="";
@@ -26,12 +25,16 @@ export class UserComponent {
 
     ngOnInit(){
         this.authdServ.UserInformation(this.getCurrentUser()).subscribe((data:UserInfo)=>this.userId=data.userLogin);
-        this.userServ.getAllUser().subscribe((x:Array<AppUser>) => this.users = x );
     }
 
     delUser(id : string){
         this.userServ.delRecord(id).subscribe( );
+        this.getUsers();
     };
+
+    getUsers(){
+        this.userServ.getAllUser().subscribe((x:Array<AppUser>) => this.users = x );
+    }
 
     getCurrentUser():string{
         return sessionStorage.getItem("currentUser");

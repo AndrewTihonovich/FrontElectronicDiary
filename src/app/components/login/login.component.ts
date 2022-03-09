@@ -12,8 +12,8 @@ import { UserLogin } from "../../models/User/UserLogin";
 })
 
 export class LoginComponent { 
-    public email : string = "asd@asd.asd";
-    public password : string = "AsdQwe!23";
+    public email : string;
+    public password : string;
     public token:string="";
     public userResponse: UserLoginResponse = new UserLoginResponse();
     

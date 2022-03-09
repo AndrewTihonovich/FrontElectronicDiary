@@ -22,7 +22,6 @@ export class TokenInterceptor implements HttpInterceptor {
             return this.sendReuest(cloned, next);
         }
         else {
-            //this.router.navigate(['/login']);
             return this.sendReuest(req, next);
         }
     }
