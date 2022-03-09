@@ -1,7 +1,7 @@
 export class AppUser{
-        private userName: string;
+        private userFirstName: string;
         private userLastName: string;
-        private login: string;
+        private userName: string;
         private email: string;
-        private phone: string;
+        private phoneNumber: string;
 }

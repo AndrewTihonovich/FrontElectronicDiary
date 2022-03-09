@@ -6,10 +6,20 @@
 
 <table >
     <tr>
-        <th class="table_th10"> Name</th>     <th class="table_th10">Last Name</th>   <th class="table_th10">Login</th>   <th class="table_th10">Email</th> <th class="table_th10">Phone </th> <th class="table_th10"> </th>
+        <th class="table_th150"> Имя</th>     
+        <th class="table_th150">Фамилия</th>   
+        <th class="table_th150">Login</th>   
+        <th class="table_th150">Email</th> 
+        <th class="table_th150">Телефон </th> 
+        <th class="table_th100"> </th>
       </tr>
 
     <tr  *ngFor="let item of users" >
-      <td>{{item.userName}}</td>  <td>{{item.userLastName}}</td> <td>{{item.login}}</td> <td>{{item.email}}</td> <td>{{item.phone}}</td> <td> <button (click)="delUser(item.email)" >Удалить</button> </td>
+      <td>{{item.userFirstName}}</td>  
+      <td>{{item.userLastName}}</td> 
+      <td>{{item.userName}}</td> 
+      <td>{{item.email}}</td> 
+      <td>{{item.phoneNumber}}</td> 
+      <td> <button (click)="delUser(item.email)" >Удалить</button> </td>
     </tr>
   </table>

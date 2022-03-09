@@ -14,7 +14,7 @@ import { UserLoginResponse } from "src/app/models/User/UserLoginResponse";
 export class RegistrationComponent { 
     firstName: string = "123";
     lastName: string = "123";
-    login: string = "123";
+    userNameLogin: string = "123";
     email: string = "123@123.123"
     phone: string = "343435";
     password: string = "!23QweAsd";
@@ -24,7 +24,7 @@ export class RegistrationComponent {
     constructor (private loginServ: authenticationService, public router: Router, private http: HttpClient) { }
 
     registrationUser(){
-        var user = new UserRegistration(this.firstName, this.lastName, this.login, this.email, this.phone, this.password );
+        var user = new UserRegistration(this.firstName, this.lastName, this.userNameLogin, this.email, this.phone, this.password );
         this.loginServ.Registration(user).subscribe(data => {
             
             if  (data.result!==null)

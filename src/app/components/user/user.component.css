@@ -1,3 +1,34 @@
-.table_th10{
+.table_th200{
+  width: 200px;
+}
+
+.table_th100{
+  width: 100px;
+} 
+
+.table_th150{
   width: 150px;
+}
+
+table {
+  background: white;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th {
+  color: rgb(0, 0, 0);
+  border-bottom: 2px solid #000000;
+  padding: 10px 8px;
+}
+
+td {
+  border-bottom: 1px solid #ccc;
+  color: rgb(0, 0, 0);
+  padding: 9px 8px;
+  transition: .3s linear;
+}
+
+tr:hover td {
+  color: #000000;
 }

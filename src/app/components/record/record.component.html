@@ -9,13 +9,21 @@
     <button routerLink="/record/create">Создать запись</button>
     </div>
 
-<table >
+<table class="table table-striped">
     <tr>
-      <th class="table_th150"> Тема/Заголовок записи </th>     <th class="table_th200">Текст записи</th>  <th class="table_th100"></th>  <th class="table_th100"></th>   
+      <th class="table_th150"> Дата/Время создания </th> 
+      <th class="table_th150"> Тема/Заголовок записи </th>     
+      <th class="table_th200">Текст записи</th>  
+      <th class="table_th100"></th>  
+      <th class="table_th100"></th>   
     </tr>
 
     <tr  *ngFor="let item of records" >
-      <td>{{item.theme}}</td>              <td>{{item.text}}</td>                   <td><button (click)="editRecord(item)">Изменить</button> </td> <td> <button (click)="delRecord(item.id)" >Удалить</button> </td>
+      <td>{{item.wasCreated | date:'dd-MM-YYYY hh:mm'}}</td>      
+      <td>{{item.theme}}</td>             
+      <td>{{item.text}}</td>                   
+      <td><button (click)="editRecord(item)">Изменить</button> </td> 
+      <td> <button (click)="delRecord(item.id)" >Удалить</button> </td>
     </tr>
   </table>
     
