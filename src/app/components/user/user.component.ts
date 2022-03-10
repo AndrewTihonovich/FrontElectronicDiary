@@ -28,7 +28,8 @@ export class UserComponent {
     }
 
     delUser(id : string){
-        this.userServ.delRecord(id).subscribe( );
+        if (confirm('Уверены, что хотите удалить?')){
+            this.userServ.delRecord(id).subscribe( );}
         this.getUsers();
     };
 
