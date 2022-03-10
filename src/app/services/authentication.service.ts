@@ -6,9 +6,9 @@ import { UserRegistration } from "../models/User/UserRegistration";
 
 @Injectable()
 export class authenticationService {
-    private urlLogin = "https://localhost:44375/api/login";
-    private urlRegistr = "https://localhost:44375/api/registration";
-    private urlUserInfo = "https://localhost:44375/api/user?userId=";
+    private urlLogin = "https://localhost:6001/api/login";
+    private urlRegistr = "https://localhost:6001/api/registration";
+    private urlUserInfo = "https://localhost:6001/api/user?userId=";
 
     constructor(private http: HttpClient) { }
 
