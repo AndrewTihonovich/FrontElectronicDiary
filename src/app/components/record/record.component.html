@@ -33,7 +33,7 @@
     </tr>
 
     <tr  *ngFor="let item of records" >
-      <td>{{item.wasCreated | date:'dd-MM-YYYY hh:mm'}}</td>      
+      <td>{{item.wasCreated | date:'dd-MM-YYYY HH:mm'}}</td>      
       <td>{{item.theme}}</td>             
       <td>{{item.text}}</td>                   
       <td><button (click)="editRecord(item)">Изменить</button> </td> 

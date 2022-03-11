@@ -2,6 +2,7 @@
     <title>Report</title> 
  </head>
 <h1>Отчеты</h1>
+<p align="right"><strong>Пользователь: {{userId}}</strong></p>
 
 <table>
     <tr>
@@ -12,7 +13,7 @@
     <tr>
       <td><input type="date" [(ngModel)]="timeStart"></td>
       <td><input type="date" [(ngModel)]="timeEnd"></td>
-      <td> <input [(ngModel)]="userId" placeholder="Пользователь"/>  </td>
+      <td> <input [(ngModel)]="sortUserId" placeholder="Пользователь"/>  </td>
       <td> <button (click)="sort(timeStart, timeEnd)">Показать записи</button> </td>
     </tr>
   </table>
@@ -25,7 +26,7 @@
     </tr>
 
     <tr  *ngFor="let item of records" >
-      <td>{{item.wasCreated | date:'dd-MM-YYYY hh:mm'}}</td>      
+      <td>{{item.wasCreated | date:'dd-MM-YYYY HH:mm'}}</td>      
       <td>{{item.theme}}</td>             
       <td>{{item.text}}</td>                   
     </tr>
